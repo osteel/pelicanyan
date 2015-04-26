@@ -2,10 +2,13 @@
 <html lang="{{ DEFAULT_LANG }}">
   <head>
     {% block head %}
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/favicon.ico" />
+
+    <meta name="author" content="{{ AUTHOR }}"/>
+    <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
 
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
 
@@ -92,6 +95,7 @@
             }, false);
             })(document);
       </script>
+
       {% if GA_ACCOUNT %}
       <script type="text/javascript">
         var _gaq = _gaq || [];
@@ -104,6 +108,24 @@
          })();
        </script>
        {% endif %}
+
+      {% if DISQUS_SITENAME %}
+      <script type="text/javascript">
+        var disqus_shortname = "{{ DISQUS_SITENAME }}";
+          {% if article %}
+              var disqus_identifier = "/{{ article.url }}";
+              var disqus_url = "{{ SITEURL }}/{{ article.url }}";
+              var disqus_title = "{{ article.title }}";
+          {% endif %}
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+      </script>
+      {% endif %}
+
+
      </div>
   </body>
 </html>

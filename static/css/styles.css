@@ -4,8 +4,9 @@
   border-radius: 40px;
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
-  background: url('../img/profile.png') no-repeat center center;
+  background: url('../img/profile.jpg') no-repeat center center;
   background-size: 99% auto;
+  margin: 0 auto;
 }
 .profile img {
   opacity: 0;
@@ -31,4 +32,15 @@ td img {
 }
 .muted {
   color: #9a9a9a !important;
+}
+.post img, video, .flash-video, .media-embed  {
+  box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
+  -moz-box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
+  -webkit-box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
+  border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  display: block;
+  border: #fff 0.5em solid;
+  margin: 0 auto 1.5em;
 }

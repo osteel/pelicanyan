@@ -24,6 +24,27 @@
     <span class="post-date">{{ article.locale_date }}</span>
 
     {{ article.content }}
+
+    <p class="meta">
+      <small>
+        Posted by {{ article.author }} on the
+        <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
+        {% if article.tags %}
+          :: [
+          {% for tag in article.tags %}
+          <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+          {% endfor %}
+          ]
+        {% endif %}
+      </small>
+    </p>
+
+    {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
+    <section>
+      <h2>Comments</h2>
+      <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    </section>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
