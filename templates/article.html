@@ -1,6 +1,10 @@
 {% extends "base.html" %}
+{% block ogimage %}{{ article.ogimage|striptags }}{% endblock ogimage %}
+  
+{% block title %}{{ article.title|striptags }} &mdash; {{ SITENAME }}{% endblock title %}
 {% block head %}
   {{ super() }}
+  
   {% for keyword in article.keywords %}
     <meta name="keywords" contents="{{keyword}}" />
   {% endfor %}

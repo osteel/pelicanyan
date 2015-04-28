@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/favicon.ico" />
 
     <meta name="author" content="{{ AUTHOR }}"/>
-    <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
+    <meta property="og:image" content="{% block ogimage %}{{ SITEURL }}/favicon.ico{% endblock ogimage %}" />
 
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
 
