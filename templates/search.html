@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search - {{ SITENAME|striptags }}
+{% endblock title %}
+
+{% block content %}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  $('#tipue_search_input').tipuesearch({
+    'show': 10,
+    'mode': 'json',
+    'contentLocation': '{{ SITEURL }}/tipuesearch_content.json'
+  });
+});
+</script>
+
+<div>
+  <form id="search-form" action="{{ SITEURL }}/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+    <input id="tipue_search_input" class="form-input" type="text" name="q" placeholder="Search" />
+    <button class="form-button">Search</button>
+  </form>
+  <div id="tipue_search_content"></div>
+</div>
+{% endblock content %}

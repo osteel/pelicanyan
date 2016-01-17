@@ -1,0 +1,93 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="{{ SITEURL }}/theme/img/profile.jpg"/>
+    </div>
+  </div>
+
+  {% if ABOUT_SECTION %}
+  <section>
+    <p>{{ ABOUT_SECTION }}</p>
+  </section>
+  {% endif %}
+
+  <section>
+    <ul class="sidebar-nav">
+      {% for page in PAGES %}
+        <li><a class="sidebar-nav-item" href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Search</h2>
+    <form class="sidebar-nav-item sidebar-nav" action="{{ SITEURL }}/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+        <input class="form-input" type="text" name="q" placeholder="Search" />
+    </form>
+  </section>
+
+  <section>
+    <h2>Categories</h2>
+    <nav class="sidebar-nav">
+      {% for category, articles in categories %}
+        <a class="sidebar-nav-item" href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
+      {% endfor %}
+
+      {% for title, href in LINKS %}
+      <a class="sidebar-nav-item" href="{{ href }}">{{ title }}</a>
+      {% endfor %}
+    </nav>
+  </section>
+
+  {% if SOCIAL %}
+    <section>
+        <h2>Find me</h2>
+        <ul class="sidebar-nav">
+        {% for name, link in SOCIAL %}
+            <li><a class="sidebar-nav-item" href="{{ link }}" target="_blank">{{ name }}</a></li>
+        {% endfor %}
+        </ul>
+    </section>
+  {% endif %}
+
+  {% if FEED_DOMAIN and (FEED_ATOM or FEED_RSS or CATEGORY_FEED_ATOM or CATEGORY_FEED_RSS) %}
+  <section>
+    <h2>Feeds</h2>
+    <ul class="sidebar-nav">
+      {% if FEED_ATOM or FEED_RSS %}
+      <li class="sidebar-nav-item">All posts&nbsp;
+        [&nbsp;
+        {% if FEED_ATOM %} <a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="subscribe-atom">Atom</a>{% endif %}
+        &nbsp;
+        {% if FEED_RSS %} <a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="subscribe-rss">RSS</a>{% endif %}
+        &nbsp;]
+      </li>
+      {% endif %}
+      {% if CATEGORY_FEED_ATOM %}
+        {% for category, articles in categories %}
+        <li class="sidebar-nav-item">{{ category }}&nbsp;
+          [&nbsp;
+          {% if CATEGORY_FEED_ATOM %} <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM %category | lower }}" rel="subscribe-atom">Atom</a>{% endif %}
+          &nbsp;
+          {% if CATEGORY_FEED_RSS %} <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS %category | lower }}" rel="subscribe-rss">RSS</a>{% endif %}
+          &nbsp;]
+        </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <div class="sidebar-item">
+    <p>
+    <a href="https://twitter.com/{{ TWITTER_ACCOUNT }}">&copy; @{{ TWITTER_ACCOUNT }}</a> 2015
+    </p>
+    <p class="tiny-note">
+      Powered by <a href="http://getpelican.com">Pelican</a> :: Theme based on <a class="muted" href="https://github.com/thomaswilley/pelicanyan">Pelicanyan</a>
+    </p>
+  </div>
+</div>
