@@ -10,6 +10,10 @@
     <meta name="author" content="{{ AUTHOR }}"/>
     <meta property="og:image" content="{% block ogimage %}{{ SITEURL }}/favicon.ico{% endblock ogimage %}" />
 
+    {% if GOOGLE_SITE_VERIFICATION %}
+    <meta name="google-site-verification" content="{{ GOOGLE_SITE_VERIFICATION }}" />
+    {% endif %}
+
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
 
     <meta charset="utf-8" />
