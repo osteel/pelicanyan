@@ -10,7 +10,7 @@
     <h1 class="post-title">
       <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
     </h1>
-    <span class="post-date">{{ article.locale_date }} in <a href="{{ SITEURL }}/category/{{ article.category|lower }}.html">{{ article.category }}</a></span>
+    <span class="post-date">{{ article.locale_date }} in <a href="{{ SITEURL }}/category/{{ article.category.slug }}.html">{{ article.category }}</a></span>
 
     {{ article.summary }}
   </div>
