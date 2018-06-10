@@ -58,6 +58,12 @@ td img {
   margin: 0 auto 1.5em !important;
 }
 
+.post .caption {
+  text-align: center;
+  margin-top: -0.7em;
+  font-style: italic;
+}
+
 .form-input {
   width: 100%;
   border: 1px solid #EEE;
