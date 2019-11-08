@@ -4,8 +4,12 @@
 
 <dl>
 {% for article in dates %}
+  {% if article.modified %}
+    <dt>{{ article.locale_modified }}</dt>
+  {% else %}
     <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+  {% endif %}
+  <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
 {% endfor %}
 </dl>
 {% endblock %}
