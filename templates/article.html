@@ -57,6 +57,23 @@
       </small>
     </p>
 
+    {% if MAILCHIMP_URL and article.status != "draft" %}
+    <section>
+      <h2>Like this?</h2>
+      <form action="{{ MAILCHIMP_URL }}" method="post" id="subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+        <label for="mce-EMAIL">Get notified of future posts by email:</label>
+        <input type="email" value="" name="EMAIL" id="mce-EMAIL" class="form-input" placeholder="email address" required>
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="form-button">
+        {% if MAILCHIMP_GROUP %}
+        <input type="checkbox" value="" name="{{ MAILCHIMP_GROUP }}" style="display:none" checked>
+        {% endif %}
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_dda32a39af10ca5ed21d00084_e1b6d5529d" tabindex="-1" value=""></div>
+        <p class="tiny-note">You can unsubscribe at any time by clicking the link in the footer of the emails.<br>By clicking to subscribe, you acknowledge that your email address will be transferred to Mailchimp for processing.<br>Learn more about Mailchimp's privacy practices <a href="https://mailchimp.com/legal/" target="_blank">here</a>.</p>
+      </form>
+    </section>
+    {% endif %}
+
     {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
     <section>
       <h2>Comments</h2>
