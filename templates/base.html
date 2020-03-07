@@ -46,6 +46,14 @@
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/lanyon.css"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/styles.css"/>
+
+    {% if SHARETHIS_ID %}
+    <script
+      type="text/javascript"
+      src="https://platform-api.sharethis.com/js/sharethis.js#property={{ SHARETHIS_ID }}&product=inline-share-buttons"
+      async="async">
+    </script>
+    {% endif %}
     {% endblock head %}
   </head>
 
