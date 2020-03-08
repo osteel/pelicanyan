@@ -11,8 +11,8 @@
       <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
     </h1>
     <span class="post-date">
-      {% if article.modified %}
-        {{ article.locale_modified }}
+      {% if article.updated %}
+        {{ article.updated }}
       {% else %}
         {{ article.locale_date }}
       {% endif %}

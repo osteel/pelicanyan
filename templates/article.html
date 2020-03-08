@@ -26,15 +26,15 @@
       {{ article.title }}
     </h1>
     <span class="post-date">
-      Last updated:
-      {% if article.modified %}
-        {{ article.locale_modified }}
-      {% else %}
-        {{ article.locale_date}}
-      {% endif %}
-      {% if REVISION_URL %}
-        <small>:: [ <a href="{{ REVISION_URL }}/{{ article.save_as }}">changelog</a> ]</small>
-      {% endif %}
+      <small>
+        {% if article.updated %}
+          Last updated: {{ article.updated }} ::
+        {% endif %}
+        Published: {{ article.locale_date}}
+        {% if REVISION_URL %}
+          :: [ <a href="{{ REVISION_URL }}/{{ article.save_as }}">history</a> ]
+        {% endif %}
+      </small>
     </span>
 
     {{ article.content }}
@@ -42,8 +42,8 @@
     <p class="meta">
       <small>
         Last updated by {{ article.author }} on the
-        {% if article.modified %}
-          <time datetime="{{ article.modified.isoformat() }}" pubdate>{{ article.locale_modified }}</time>
+        {% if article.updated %}
+          <time datetime="{{ article.updated }}" pubdate>{{ article.updated }}</time>
         {% else %}
           <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
         {% endif %}

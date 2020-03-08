@@ -4,8 +4,8 @@
 
 <dl>
 {% for article in dates %}
-  {% if article.modified %}
-    <dt>{{ article.locale_modified }}</dt>
+  {% if article.updated %}
+    <dt>{{ article.updated }}</dt>
   {% else %}
     <dt>{{ article.locale_date }}</dt>
   {% endif %}
