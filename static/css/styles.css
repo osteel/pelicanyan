@@ -5,33 +5,16 @@ a {
 .profile {
   height: 80px;
   width: 80px;
-  border-radius: 40px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  background: url('../img/profile.jpg') no-repeat center center;
   background-size: 99% auto;
   margin: 0 auto;
 }
 
 .profile img {
-  opacity: 0;
-  filter: alpha(opactiy=0);
+  border-radius: 40px;
 }
 
 .content-title h2 {
   color: #9a9a9a;
-}
-
-table {
-  max-width: 100% !important;
-}
-
-tr {
-  max-width: 100% !important;
-}
-
-td {
-  max-width: 100px !important;
 }
 
 td img {
@@ -190,4 +173,43 @@ p img, video, .flash-video, .media-embed  {
 #subscribe-form > input, #subscribe-form > label {
   display: inline-block;
   margin-bottom: 0.75rem;
+}
+
+/*
+ * Table of contents
+ */
+
+ ul ul {
+  margin-bottom: 0;
+}
+
+/*
+ * Syntax highlighting
+ */
+
+table {
+  table-layout: fixed;
+}
+
+table td {
+  padding: .5rem;
+}
+
+.highlight {
+  padding: 0;
+}
+
+.highlighttable pre {
+  padding: 0;
+  margin: 0;
+}
+
+.highlighttable .code > .highlight {
+  margin: 0;
+}
+
+.highlighttable .linenos {
+  width: 3rem;
+  text-align: center;
+  color: #9a9a9a;
 }
