@@ -6,16 +6,25 @@
   {{ super() }}
 
   {% for keyword in article.keywords %}
-    <meta name="keywords" contents="{{keyword}}" />
+  <meta name="keywords" contents="{{ keyword }}" />
   {% endfor %}
 
   {% if article.summary %}
-    <meta name="description" contents="{{article.summary}}" />
+  <meta name="description" contents="{{ article.summary|striptags }}" />
+  <meta name="twitter:description" contents="{{ article.summary|striptags }}" />
   {% endif %
 
   {% for tag in article.tags %}
-    <meta name="tags" contents="{{tag}}" />
+  <meta name="tags" contents="{{ tag }}" />
   {% endfor %}
+
+  <meta name="twitter:card" content="summary_large_image">
+  {% if TWITTER_ACCOUNT %}
+  <meta name="twitter:site" content="@{{ TWITTER_ACCOUNT }}">
+  <meta name="twitter:creator" content="@{{ TWITTER_ACCOUNT }}">
+  {% endif %}
+  <meta name="twitter:title" content="{{ article.title }}">
+  <meta name="twitter:image" content="{{ article.ogimage|striptags }}">
 
 {% endblock %}
 
